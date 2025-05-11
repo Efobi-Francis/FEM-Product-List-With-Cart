@@ -106,7 +106,7 @@ export default function CartDisplay() {
                     Confirm Order
                   </Button>
                 </DrawerTrigger>
-                <DrawerContent className={cn('mb-16')}>
+                <DrawerContent className={cn('mb-12')}>
                   <div className=''>
                     <DrawerHeader>
                       <DrawerTitle>
