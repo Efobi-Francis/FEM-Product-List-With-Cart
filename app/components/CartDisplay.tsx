@@ -238,7 +238,7 @@ export default function CartDisplay() {
 
                       <Button
                         onClick={() => handleReset()}
-                        className=' h-12 w-full bg-[hsl(14,86%,42%)] rounded-full text-lg z-50'
+                        className=' h-12 w-full bg-[hsl(14,86%,42%)] rounded-full text-lg z-50 hover:bg-[hsl(14,85%,32%)]'
                       >
                         Start New Order
                       </Button>
