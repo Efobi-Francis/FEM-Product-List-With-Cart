@@ -1,4 +1,3 @@
-import Image from "next/image";
 import DessertsList from "./components/DessertsList";
 import CartDisplay from "./components/CartDisplay";
 
