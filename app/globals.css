@@ -102,6 +102,10 @@ body {
   border: 1px solid var(--Rose_500) ;
 }
 
+.addCartBTN:hover {
+  border: 1px solid var(--Red)
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);

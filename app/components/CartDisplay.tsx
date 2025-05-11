@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { useStore, CartItem } from './DessertCart'
 
 import icon_emptyCart from '@/public/images/illustration-empty-cart.svg'
-import icon_delete from '@/public/images/icon-remove-item.svg'
 import icon_carbonNeutral from '@/public/images/icon-carbon-neutral.svg'
 import icon_orderConfirmed from '@/public/images/icon-order-confirmed.svg'
 
@@ -64,14 +63,15 @@ export default function CartDisplay() {
                 <div>
                   <button
                     onClick={() => handleDelete(item)}
-                    className=' cursor-pointer'
+                    className=' cursor-pointer group'
                     aria-label="Delete Item"
                   >
-                    <Image
-                      src={icon_delete}
-                      alt='Delete Button'
-                      className='h-5 w-5 border-2 border-[hsl(7,20%,60%)] rounded-full px-[2px]'
-                    />
+                    <svg xmlns="http://www.w3.org/2000/svg" className='h-5 w-5 border-2 border-[hsl(7,20%,60%)] group-hover:border-[hsl(14,65%,9%)] rounded-full px-[2px]' 
+                      width="10" height="10" fill="none" viewBox="0 0 10 10"
+                    >
+                      <path fill="#CAAFA7" className=' group-hover:fill-[hsl(14,65%,9%)]' d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"/>
+                    </svg>
+                    
                   </button>
                 </div>
               </div>
@@ -94,6 +94,7 @@ export default function CartDisplay() {
               </p>
             </div>
 
+            {/* mobile checkout with shadcn drawer */}
             <div className=' md:hidden'>
               <Drawer>
                 <DrawerTrigger asChild>
@@ -106,7 +107,7 @@ export default function CartDisplay() {
                     Confirm Order
                   </Button>
                 </DrawerTrigger>
-                <DrawerContent className={cn('mb-12')}>
+                <DrawerContent className={cn('mb-10')}>
                   <div className=''>
                     <DrawerHeader>
                       <DrawerTitle>
@@ -172,10 +173,15 @@ export default function CartDisplay() {
                 </DrawerContent>
               </Drawer>
             </div>
-
-              <div className=' hidden md:block '>
-                <AlertDialog>
-                  <AlertDialogTrigger className={cn('h-12 w-full bg-[hsl(14,86%,42%)] text-white rounded-full text-lg')}>
+            
+            {/* desktop checkout with shadcn alert dialog */}
+            <div className=' hidden md:block '>
+              <AlertDialog>
+                  <AlertDialogTrigger 
+                    className={
+                      cn(' h-12 w-full bg-[hsl(14,86%,42%)] text-white rounded-full text-lg hover:bg-[hsl(14,85%,32%)] cursor-pointer')
+                    }
+                  >
                     Confirm Order
                   </AlertDialogTrigger>
                   <AlertDialogContent className={cn('bg-[hsl(20,50%,98%)]')}>
@@ -239,8 +245,8 @@ export default function CartDisplay() {
 
                     </AlertDialogFooter>
                   </AlertDialogContent>
-                </AlertDialog>
-              </div>
+              </AlertDialog>
+            </div>
 
           </div>
         </div>

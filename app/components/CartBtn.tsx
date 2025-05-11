@@ -5,8 +5,6 @@ import React, { useState, useEffect } from 'react'
 import { useStore } from './DessertCart'
 
 import icon_addToCart from '@/public/images/icon-add-to-cart.svg'
-import icon_decrement from '@/public/images/icon-decrement-quantity.svg'
-import icon_increment from '@/public/images/icon-increment-quantity.svg'
 
 interface DessertData {
     dessertName: string
@@ -70,7 +68,7 @@ export default function CartBtn({ dessertName, dessertPrice, dessertThumbnail }:
     }
 
     return (
-        <div className="absolute -bottom-5 inset-x-0 flex justify-center mx-auto rounded-full w-40 h-10 addCartBTN">
+        <div className="absolute -bottom-5 inset-x-0 flex justify-center mx-auto rounded-full w-40 h-10 addCartBTN ">
             {clicked ? (
                 <div className="flex items-center justify-between w-full rounded-full bg-[hsl(14,86%,42%)] px-3.5">
                     <button
@@ -78,14 +76,14 @@ export default function CartBtn({ dessertName, dessertPrice, dessertThumbnail }:
                             e.preventDefault()
                             handleDecrementBTN()
                         }}
-                        className=' cursor-pointer'
+                        className=' cursor-pointer group'
                         aria-label="Decrement Quantity"
                     >
-                        <Image
-                            src={icon_decrement}
-                            alt="icon decrement"
-                            className=" h-5 w-5 border-2 border-[hsl(20,50%,98%)] rounded-full px-[2px]"
-                        />
+                        <svg xmlns="http://www.w3.org/2000/svg" className=" h-5 w-5 border-2 border-[hsl(20,50%,98%)] rounded-full px-[2px] group-hover:bg-white " 
+                            width="10" height="2" fill="none" viewBox="0 0 10 2"
+                        >
+                            <path fill="#fff" className=' group-hover:fill-[hsl(14,86%,42%)]' d="M0 .375h10v1.25H0V.375Z"/>
+                        </svg>
                     </button>
 
                     <span className=' text-[hsl(20,50%,98%)]'>{quantity}</span>
@@ -95,13 +93,14 @@ export default function CartBtn({ dessertName, dessertPrice, dessertThumbnail }:
                             e.preventDefault()
                             handleIncrementBTN()
                         }}
+                        className=' cursor-pointer group'
                         aria-label="Increment Quantity"
                     >
-                        <Image
-                            src={icon_increment}
-                            alt="icon increment"
-                            className=" h-5 w-5 border-2 border-[hsl(20,50%,98%)] rounded-full px-[2px]"
-                        />
+                        <svg xmlns="http://www.w3.org/2000/svg" className=" h-5 w-5 border-2 border-[hsl(20,50%,98%)] rounded-full px-[2px] group-hover:bg-white" 
+                            width="10" height="10" fill="none" viewBox="0 0 10 10"
+                        >
+                            <path fill="#fff" className=' group-hover:fill-[hsl(14,86%,42%)]' d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"/>
+                        </svg>
                     </button>
                 </div>
             ) : (
@@ -110,14 +109,13 @@ export default function CartBtn({ dessertName, dessertPrice, dessertThumbnail }:
                         e.preventDefault()
                         handleCartBTN()
                     }} 
-                    className="flex items-center gap-2 cursor-pointer"
+                    className="flex items-center gap-2 cursor-pointer hover:text-[hsl(14,86%,42%)]"
                 >
                     <Image
                         src={icon_addToCart}
                         alt="icon add to cart"
-                        className=" "
                     />
-                    <span className=' font-bold'>Add to Cart</span>
+                    <span className=' font-semibold '>Add to Cart</span>
                 </button>
             )}
         </div>
