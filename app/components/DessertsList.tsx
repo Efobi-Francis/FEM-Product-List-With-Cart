@@ -1,11 +1,10 @@
 'use client'
 
-import React, { useState } from "react";
+import React from "react";
 
 import dessertData from "../data/data.json";
 import CartBtn from "./CartBtn";
 import { useStore } from "./DessertCart";
-import Image from "next/image";
 
 export default function DessertsList() {
   const {cart} = useStore()
